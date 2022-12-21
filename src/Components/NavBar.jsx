@@ -1,28 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 
 export default function NavBar() {
-  useEffect(() => {
-    const sideNavBtn = document.querySelector(".side-nav-btn");
-    const sideNav = document.querySelector(".side-nav");
-    const sideNavClose = document.querySelector(".side-nav-close");
+  const [toggle, setToggle] = useState(false);
 
-    sideNavBtn.addEventListener("click", () => {
-      sideNav.classList.toggle("active");
-    });
-
-    sideNavClose.addEventListener("click", function () {
-      sideNav.classList.remove("active");
-    });
-    // const navbar = document.querySelector(".nav-section");
-
-    // window.addEventListener("scroll", () => {
-    //   if (scrollY > 180) {
-    //     navbar.classList.add("sticky");
-    //   } else {
-    //     navbar.classList.remove("sticky");
-    //   }
-    // });
-  }, []);
+  const isToggle = (e) => {
+    if (!e) {
+      setToggle(true);
+    } else {
+      setToggle(false);
+    }
+  };
   return (
     <>
       <div className="wrapper">
@@ -59,20 +46,20 @@ export default function NavBar() {
                 </a>
               </ul>
             </div>
-            <div className="side-nav-btn">
+            <div className="side-nav-btn" onClick={() => isToggle(toggle)}>
               <i className="fas fa-bars"></i>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="side-nav">
+      <div className={`side-nav ${toggle ? "active" : ""}`}>
         <div className="wrapper">
           <div className="side-nav-close">
-            <button>
+            <button onClick={() => isToggle(toggle)}>
               <i className="fas fa-times"></i>
             </button>
           </div>
+          {/* <button onClick={() => isToggle(toggle)}>close</button> */}
 
           <ul>
             <a href="#home">

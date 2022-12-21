@@ -44,7 +44,7 @@ section {
 
 .nav-section {
   position: absolute;
-  z-index: 99;
+  z-index: 50;
   max-width: 1300px;
   margin: 1rem auto;
   padding: 0 30px;
