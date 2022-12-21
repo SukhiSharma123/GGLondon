@@ -17,7 +17,7 @@ function ProductCard() {
                 <Card.Img
                   variant="top"
                   src={data.image}
-                  style={{ width: "100%", height: "250px" }}
+                  style={{ width: "100%", height: "300px" }}
                 />
                 <Card.Body>
                   <Card.Title>{data.name}</Card.Title>
